@@ -1,0 +1,12 @@
+*
+
+!Assets/
+!ProjectSettings/
+!UserSettings/
+
+!Assets/**
+!ProjectSettings/**
+!UserSettings/**
+
+
+!.gitignore
