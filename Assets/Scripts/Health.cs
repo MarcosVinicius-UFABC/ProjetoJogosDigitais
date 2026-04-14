@@ -37,7 +37,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float v)
     {
         currentHealth -= Mathf.Abs(v);
-        print(v + " - Damage Taken");
         IsDead();
     }
     public void MultiplyMax(float v)
@@ -56,6 +55,8 @@ public class Health : MonoBehaviour
 
     private void IsDead()
     {
+        print(currentHealth + " - Current Health" );
+        
         if (currentHealth <= 0)
             {
                 Destroy(gameObject);
@@ -63,8 +64,11 @@ public class Health : MonoBehaviour
             }
     }
 
+
+
     void Start()
     {
         currentHealth = maxHealth;
+        print(currentHealth);
     }
 }
