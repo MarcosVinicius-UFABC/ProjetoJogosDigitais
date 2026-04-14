@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        spawnPosition = transform.position + new Vector3(.86f, 0, 0);
+        Vector3 spawnPosition = transform.position + new Vector3(.86f, 0, 0);
         GameObject newAttack = Instantiate(attack, spawnPosition, Quaternion.identity);
     }
 }

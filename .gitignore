@@ -3,10 +3,12 @@
 !Assets/
 !ProjectSettings/
 !UserSettings/
+!Packages/
 
 !Assets/**
 !ProjectSettings/**
 !UserSettings/**
+!Packages/**
 
 
 !.gitignore
