@@ -9,9 +9,9 @@ public class PlayerHealth : Health
     // Update is called once per frame
     void Update()
     {
-        if(Mouse.current.leftButton.wasPressedThisFrame)
+        /*if(Mouse.current.leftButton.wasPressedThisFrame)
         {
             base.TakeDamage(10);
-        }
+        }*/
     }
 }
