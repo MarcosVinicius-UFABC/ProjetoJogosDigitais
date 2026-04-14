@@ -5,11 +5,6 @@ public class PlayerHealth : Health
 {
     //public float hp = 100;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //base.SetMax(hp);
-        //base.SetCurrent(hp);
-    }
 
     // Update is called once per frame
     void Update()

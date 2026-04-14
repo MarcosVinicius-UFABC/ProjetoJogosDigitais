@@ -1,8 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public float speed = 4f;
+    public float damage = 30f;
     private Vector2 moveInput;
     private GameObject target;
     private Rigidbody2D rb;
@@ -16,6 +18,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Move(target);
+    }
+
+    public void SetTarget(GameObject tg)
+    {
+        target = tg;
+    }
+
+    public void Move(GameObject target)
+    {
         if(target == null)
         {
             rb.linearVelocity = Vector2.zero; // para o movimento
@@ -25,8 +37,11 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
     }
 
-    public void SetTarget(GameObject tg)
+    public void OnCollisionStay2D(Collision2D collision)
     {
-        target = tg;
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage * Time.deltaTime);
+        }
     }
 }
