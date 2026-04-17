@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private GameObject attack;
+    public GameObject attack;
+    private PlayerInputActions input; // nome do seu asset
+    private Vector2 moveInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,11 +24,17 @@ public class PlayerAttack : MonoBehaviour
 
     void TestFunction()
     {
+        Attack();
     }
 
     void Attack()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(.86f, 0, 0);
-        GameObject newAttack = Instantiate(attack, spawnPosition, Quaternion.identity);
+
+        GameObject newAttack = Instantiate(attack, this.transform);
+    }
+
+    public Vector2 CheckDirection()
+    {
+        return moveInput;
     }
 }
