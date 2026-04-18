@@ -3,38 +3,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject attack;
-    private PlayerInputActions input; // nome do seu asset
-    private Vector2 moveInput;
+    public GameObject projectilePrefab;
+    public float fireRate = 0.3f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private float cooldown = 0f;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Mouse.current.leftButton.wasPressedThisFrame)
+        cooldown -= Time.deltaTime;
+        if (cooldown <= 0f)
         {
-            TestFunction();
+            FireProjectile();
+            cooldown = fireRate;
         }
     }
 
-    void TestFunction()
+    void FireProjectile()
     {
-        Attack();
-    }
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mouseWorld.z = 0f;
 
-    void Attack()
-    {
+        Vector2 direction = (mouseWorld - transform.position).normalized;
 
-        GameObject newAttack = Instantiate(attack, this.transform);
-    }
-
-    public Vector2 CheckDirection()
-    {
-        return moveInput;
+        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        proj.GetComponent<ProjectileAttack>().SetDirection(direction);
     }
 }
