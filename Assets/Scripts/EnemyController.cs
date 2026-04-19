@@ -37,6 +37,11 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
     }
 
+    void OnDestroy()
+    {
+        GameManager.Instance?.EnemyDied();
+    }
+
     public void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
