@@ -20,6 +20,12 @@ public class PlayerAttack : MonoBehaviour
 
     void FireProjectile()
     {
+        if (projectilePrefab == null)
+        {
+            Debug.LogWarning("PlayerAttack: projectilePrefab not assigned in Inspector.", this);
+            return;
+        }
+
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouseWorld.z = 0f;
 
