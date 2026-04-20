@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public float spawnInterval = 0.3f;
 
+    public int KillCount { get; private set; } = 0;
+
     private GameObject player;
     private float height;
     private float width;
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void EnemyDied()
     {
         enemiesAlive--;
+        KillCount++;
         if (enemiesAlive <= 0)
             StartCoroutine(NextWave());
     }
