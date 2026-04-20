@@ -17,7 +17,10 @@ public class Health : MonoBehaviour
     public void SetCurrent(float v)
     {
         currentHealth = v;
-        IsDead();
+        if (currentHealth < 0)
+        {
+            IsDead();
+        }
     }
     public void AddMax(float v)
     {
@@ -38,7 +41,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(float v)
     {
         currentHealth -= Mathf.Abs(v);
-        IsDead();
+        if (currentHealth < 0)
+        {
+            IsDead();
+        }
     }
     public void MultiplyMax(float v)
     {
@@ -51,18 +57,16 @@ public class Health : MonoBehaviour
     public void MultiplyCurrent(float v)
     {
         currentHealth *= v;
-        IsDead();
+        if (currentHealth < 0)
+        {
+            IsDead();
+        }
     }
 
-    private void IsDead()
+    protected virtual void IsDead()
     {
-        print(currentHealth + " - Current Health" );
-        
-        if (currentHealth <= 0)
-            {
-                Destroy(gameObject);
-                print("Destroyed object");
-            }
+        Destroy(gameObject);
+        print("Destroyed object");
     }
 
 

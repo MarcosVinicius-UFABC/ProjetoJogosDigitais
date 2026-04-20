@@ -5,8 +5,8 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 4f;
     public float damage = 30f;
-    public float xpDrop = 10f;
-    public GameObject xpOrbPrefab;
+    /*public float xpDrop = 10f;
+    public GameObject xpOrbPrefab;*/
     private Vector2 moveInput;
     private GameObject target;
     private Rigidbody2D rb;
@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
     }
 
-    void OnDestroy()
+    /*void OnDestroy()
     {
         GameManager.Instance?.EnemyDied();
         if (xpOrbPrefab != null)
@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
             GameObject orb = Instantiate(xpOrbPrefab, transform.position, Quaternion.identity);
             orb.GetComponent<XPOrb>().xpValue = xpDrop;
         }
-    }
+    }*/
 
     public void OnCollisionStay2D(Collision2D collision)
     {

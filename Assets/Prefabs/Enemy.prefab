@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1612115011936571982}
   - component: {fileID: 4481570357799985587}
   - component: {fileID: 4969200742095311621}
-  - component: {fileID: 1120402279202752210}
+  - component: {fileID: 2217674877712334551}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -50,8 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 4
   damage: 30
-  xpDrop: 10
-  xpOrbPrefab: {fileID: 6629881491934455987, guid: b808ee467de6f0744a323945c35bd875, type: 3}
 --- !u!50 &1612115011936571982
 Rigidbody2D:
   serializedVersion: 5
@@ -175,7 +173,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1120402279202752210
+--- !u!114 &2217674877712334551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +182,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267803481848759392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d75d8d4174d694687373c39d53c4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ed38ea89b1ec2f49bcdca97561001c1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 50
+  xpDrop: 10
+  xpOrbPrefab: {fileID: 6629881491934455987, guid: b808ee467de6f0744a323945c35bd875, type: 3}
