@@ -7,9 +7,9 @@ public class EnemyController : MonoBehaviour
     public float damage = 30f;
     /*public float xpDrop = 10f;
     public GameObject xpOrbPrefab;*/
-    private Vector2 moveInput;
-    private GameObject target;
-    private Rigidbody2D rb;
+    protected Vector2 moveInput;
+    protected GameObject target;
+    protected Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
