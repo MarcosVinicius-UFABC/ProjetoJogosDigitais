@@ -1,8 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [System.Serializable] public class AttackData
+    {
+        public GameObject attackPrefab;
+        public float attackCooldown;
+        public float attackTimer = 0f;
+        public int attackAmount = 1;
+    }
+    
+    public List<AttackData> playerAttacks = new List<AttackData>();
+
     public GameObject projectilePrefab;
     public GameObject meleePrefab;
     public float fireRate = 0.3f;
@@ -12,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        /*
         cooldown -= Time.deltaTime;
         if (cooldown <= 0f)
         {
@@ -21,6 +33,8 @@ public class PlayerAttack : MonoBehaviour
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
             FireMelee();
+        */
+        AllAttacks();
     }
 
     void FireProjectile()
@@ -55,5 +69,48 @@ public class PlayerAttack : MonoBehaviour
         Vector3 spawnPos = transform.position + (Vector3)direction * meleeOffset;
 
         Instantiate(meleePrefab, spawnPos, Quaternion.Euler(0f, 0f, angle), transform);
+    }
+
+    private void AllAttacks()
+    {
+        for (int i = 0; i < playerAttacks.Count; i++)
+        {
+            AttackData atk = playerAttacks[i];
+            if (atk.attackPrefab == null || atk.attackCooldown < 0 || atk.attackAmount < 0)
+            {
+                Debug.LogWarning("Mismatching attack data!");
+                Debug.Log(atk.attackPrefab.name);
+                return;
+            }
+            if (atk.attackTimer <= 0)
+            {
+                for (int n = 0; n < atk.attackAmount; n++)
+                {
+                    Attack(atk.attackPrefab);
+                }
+                atk.attackTimer = atk.attackCooldown;
+            }
+            else
+            {
+                atk.attackTimer -= Time.deltaTime;
+            }
+        }
+        
+    }
+
+    void Attack(GameObject attack)
+    {
+        if (attack == meleePrefab)
+        {
+            FireMelee();
+        }
+        else if (attack = projectilePrefab)
+        {
+            FireProjectile();
+        }
+        else
+        {
+            Debug.LogWarning("Attack not found!");
+        }
     }
 }

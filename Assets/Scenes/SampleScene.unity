@@ -724,6 +724,58 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: attackPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: attackCooldowns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: 'attackPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: 'attackPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: 'attackCooldowns.Array.data[0]'
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: 'attackCooldowns.Array.data[1]'
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[0].attackAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[0].attackPrefab
+      value: 
+      objectReference: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackPrefab
+      value: 
+      objectReference: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[0].attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackCooldown
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6021281772846066099, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: m_Name
       value: Player
