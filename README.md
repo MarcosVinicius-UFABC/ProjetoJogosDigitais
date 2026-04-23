@@ -26,4 +26,11 @@ O que ainda falta fazer que tem nos critérios de correção (ver no Moodle conf
 
 *********************************************
 
+Ideia inicial para cenas:
+Menu principal - Cena para gerenciar início do jogo, possibilidade de sair dele e tal
+Abertura (opcional) - Cena para tratar de questões de narrativa através de falas de npc
+Primeira cena de jogo - Sobrevivência por tempo
+Intervalo (opcional) - Cena para tratar de questões narrativas
+Segunda cena de jogo - Enfrentar um boss e talvez algumas waves de inimigos
+
 *********************************************
