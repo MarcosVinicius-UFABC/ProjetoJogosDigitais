@@ -894,22 +894,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: rushCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: rushDuration
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: approachingDistance
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5726748943591329764, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.39
@@ -949,6 +933,22 @@ PrefabInstance:
     - target: {fileID: 5726748943591329764, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615299166379419616, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
+      propertyPath: damage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615299166379419616, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
+      propertyPath: rushCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615299166379419616, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
+      propertyPath: rushDuration
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615299166379419616, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
+      propertyPath: speedMultiplier
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
