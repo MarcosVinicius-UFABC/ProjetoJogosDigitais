@@ -1,6 +1,6 @@
 # Projeto de jogos digitais
 
-Branch de desenvolvimento SPAWN-HP 
+Branch de desenvolvimento CenasDiferentes
 
 *********************************************
 
