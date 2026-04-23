@@ -35,9 +35,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Reset()
     {
-        UnityEngine.SceneManagement.Scene currentScene = SceneManager.GetActiveScene();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene.name);
-        Resume();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitToMenu()

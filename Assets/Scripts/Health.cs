@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         maxHealth *= v;
         if (currentHealth > maxHealth)
         {
-            MultiplyCurrent(v);
+            currentHealth = maxHealth;
         }
     }
     public void MultiplyCurrent(float v)

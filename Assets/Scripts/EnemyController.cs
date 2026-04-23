@@ -17,8 +17,7 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move(target);
     }

@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject meleePrefab;
     public float fireRate = 0.3f;
     public float meleeOffset = 1f;
+    [HideInInspector] public float damageMultiplier = 1f;
 
     private float cooldown = 0f;
 
@@ -50,7 +51,9 @@ public class PlayerAttack : MonoBehaviour
         Vector2 direction = (mouseWorld - transform.position).normalized;
 
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        proj.GetComponent<ProjectileAttack>().SetDirection(direction);
+        ProjectileAttack pa = proj.GetComponent<ProjectileAttack>();
+        pa.damage *= damageMultiplier;
+        pa.SetDirection(direction);
     }
 
     void FireMelee()
@@ -68,7 +71,8 @@ public class PlayerAttack : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Vector3 spawnPos = transform.position + (Vector3)direction * meleeOffset;
 
-        Instantiate(meleePrefab, spawnPos, Quaternion.Euler(0f, 0f, angle), transform);
+        GameObject melee = Instantiate(meleePrefab, spawnPos, Quaternion.Euler(0f, 0f, angle), transform);
+        melee.GetComponent<MeleeAttack>().damage *= damageMultiplier;
     }
 
     private void AllAttacks()
@@ -78,8 +82,7 @@ public class PlayerAttack : MonoBehaviour
             AttackData atk = playerAttacks[i];
             if (atk.attackPrefab == null || atk.attackCooldown < 0 || atk.attackAmount < 0)
             {
-                Debug.LogWarning("Mismatching attack data!");
-                Debug.Log(atk.attackPrefab.name);
+                Debug.LogWarning("PlayerAttack: invalid AttackData entry — skipping.");
                 return;
             }
             if (atk.attackTimer <= 0)
@@ -104,7 +107,7 @@ public class PlayerAttack : MonoBehaviour
         {
             FireMelee();
         }
-        else if (attack = projectilePrefab)
+        else if (attack == projectilePrefab)
         {
             FireProjectile();
         }
