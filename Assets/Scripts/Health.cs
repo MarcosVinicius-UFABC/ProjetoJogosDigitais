@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void IsDead()
+    public virtual void IsDead()
     {
         Destroy(gameObject);
         print("Destroyed object");

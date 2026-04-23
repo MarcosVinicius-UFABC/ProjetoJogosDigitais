@@ -5,7 +5,7 @@ public class EnemyHealth : Health
 {
     public float xpDrop = 10f;
     public GameObject xpOrbPrefab;
-    protected override void IsDead()
+    public override void IsDead()
     {
         GameManager.Instance?.EnemyDied();
         if (xpOrbPrefab != null)

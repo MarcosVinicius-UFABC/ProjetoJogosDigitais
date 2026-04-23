@@ -20,16 +20,19 @@ public class BossController : EnemyController
         {
             tg = GameObject.FindGameObjectWithTag("Player");
         }
-        if (Vector3.Distance(tg.transform.position, this.transform.position) <= approachingDistance && !rushMode)
-        {
-            rushMode = true;
-            speed *= 4;
-            Debug.Log("Once");
-        }
         else
         {
-            Debug.Log("Begin");
-            Movement(tg);
+            if (Vector3.Distance(tg.transform.position, this.transform.position) <= approachingDistance && !rushMode)
+            {
+                rushMode = true;
+                speed *= 4;
+                Debug.Log("Once");
+            }
+            else
+            {
+                Debug.Log("Begin");
+                Movement(tg);
+            }
         }
     }
     void Movement(GameObject target)

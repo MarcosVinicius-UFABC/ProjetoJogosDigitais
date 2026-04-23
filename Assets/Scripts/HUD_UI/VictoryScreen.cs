@@ -3,34 +3,30 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class VictoryScreen : MonoBehaviour
 {
-    public GameObject pausePanel;
+    public GameObject victoryScreen;
     private bool isPaused = false;
-
-    void Update()
-    {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            if (isPaused)
-                Resume();
-            else
-                Pause();
-        }
-    }
 
     public void Resume()
     {
-        pausePanel.SetActive(false);
-        Time.timeScale = 1f;
+        victoryScreen.SetActive(false);
         isPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void Pause()
     {
-        pausePanel.SetActive(true);
+        victoryScreen.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+    }
+
+    public void NextStage()
+    {
+        UnityEngine.SceneManagement.Scene currentScene = SceneManager.GetActiveScene();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene.buildIndex+1);
+        Resume();
     }
 
     public void Reset()
@@ -42,7 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMenu()
     {
-        Time.timeScale = 1f;
+        Resume();
         UnityEngine.SceneManagement.SceneManager.LoadScene("0.MainMenu");
     }
 
