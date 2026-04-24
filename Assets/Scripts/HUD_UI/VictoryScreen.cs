@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class VictoryScreen : MonoBehaviour
 {
     public GameObject victoryScreen;
-    private bool isPaused = false;
 
     public void Resume()
     {
         victoryScreen.SetActive(false);
-        isPaused = false;
         Time.timeScale = 1f;
     }
 
@@ -19,7 +17,6 @@ public class VictoryScreen : MonoBehaviour
     {
         victoryScreen.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
     }
 
     public void NextStage()

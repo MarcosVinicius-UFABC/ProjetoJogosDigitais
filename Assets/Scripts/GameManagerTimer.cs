@@ -14,6 +14,10 @@ public class GameManagerTimer : MonoBehaviour
     public Vector3 clockOffset;
 
     public GameObject victoryScreen;
+    private int minutesNumber;
+    private string minutes;
+    private int secondsNumber;
+    private string seconds;
 
     private bool gameOver = false;
 
@@ -23,7 +27,11 @@ public class GameManagerTimer : MonoBehaviour
         clock = Instantiate(textMeshPro);
         clock.transform.position = clockOffset;
         clock.transform.SetParent(this.transform);
-        clock.text = Mathf.RoundToInt(timer/60) + ":" + Mathf.RoundToInt(timer%60);
+        minutesNumber = (int)(timer/60);
+        minutes = minutesNumber.ToString();
+        secondsNumber = (int)(timer%60);
+        seconds = secondsNumber<10? "0" : "" + secondsNumber.ToString();
+        clock.text = minutes + ":" + seconds;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -32,7 +40,11 @@ public class GameManagerTimer : MonoBehaviour
         if(player != null)
         {
             timer -= Time.deltaTime;
-            clock.text = (int)(timer/60) + ":" + (int)(timer%60);
+            minutesNumber = (int)(timer/60);
+            minutes = minutesNumber.ToString();
+            secondsNumber = (int)(timer%60);
+            seconds = (secondsNumber<10? "0" : "") + secondsNumber.ToString();
+            clock.text = minutes + ":" + seconds;
         }
 
         if(timer <= 0 && !gameOver)
@@ -42,6 +54,8 @@ public class GameManagerTimer : MonoBehaviour
             {
                 enemies[i].GetComponent<EnemyHealth>().IsDead();
             }
+
+            Destroy(clock);
 
             gameObject.GetComponent<VictoryScreen>().Pause();
             gameOver = true;

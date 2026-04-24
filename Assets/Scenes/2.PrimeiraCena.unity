@@ -885,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerTimer
   textMeshPro: {fileID: 7572869591850606566, guid: 4752f2cb84a0126488953bf5182e3c3b, type: 3}
-  sceneTime: 2
+  sceneTime: 20
   clockOffset: {x: 0, y: 5, z: 0}
   victoryScreen: {fileID: 1500942656}
 --- !u!114 &1358804491
@@ -921,10 +921,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 339130245746597070, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: m_Mass
-      value: 1.785398
-      objectReference: {fileID: 0}
     - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: meleePrefab
       value: 
@@ -934,32 +930,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
     - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: attackPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: playerAttacks.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: attackCooldowns.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: 'attackPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: 'attackPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: 'attackCooldowns.Array.data[0]'
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      propertyPath: 'attackCooldowns.Array.data[1]'
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4684457928290615270, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: playerAttacks.Array.data[0].attackAmount
@@ -1032,13 +1004,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6021281772846066099, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1647943032}
-    - targetCorrespondingSourceObject: {fileID: 6021281772846066099, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1647943033}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
 --- !u!1 &1500942656 stripped
 GameObject:
@@ -1055,38 +1021,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6021281772846066099, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
   m_PrefabInstance: {fileID: 1377808656}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1647943029 stripped
+--- !u!114 &1647943033 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7202880400053161854, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6236047797417326502, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
   m_PrefabInstance: {fileID: 1377808656}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647943024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9626ab7b239154fae8119c28f2efc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
---- !u!114 &1647943032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647943024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5554b044afc8c994c8a1298208824194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthBar
-  health: {fileID: 1647943029}
-  barWidth: 1
-  barHeight: 0.2
-  offsetY: -2
---- !u!114 &1647943033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647943024}
   m_Enabled: 1
@@ -1094,8 +1032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec7ec1984d8244ebf3349f66845154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerXP
-  xpToNextLevel: 100
-  xpScaling: 1.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

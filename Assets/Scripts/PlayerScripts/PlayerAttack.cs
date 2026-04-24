@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public float meleeOffset = 1f;
     [HideInInspector] public float damageMultiplier = 1f;
 
-    private float cooldown = 0f;
+    //private float cooldown = 0f;
 
     void Update()
     {

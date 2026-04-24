@@ -26,10 +26,11 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-        playerXP = FindObjectOfType<PlayerXP>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
-        playerController = FindObjectOfType<PlayerController>();
-        playerAttack = FindObjectOfType<PlayerAttack>();
+        //Substituídos os FindObjectOfType por FindFirstObjectByType
+        playerXP = FindFirstObjectByType<PlayerXP>();
+        playerHealth = FindFirstObjectByType<PlayerHealth>();
+        playerController = FindFirstObjectByType<PlayerController>();
+        playerAttack = FindFirstObjectByType<PlayerAttack>();
 
         if (playerXP == null)
         {
@@ -92,7 +93,8 @@ public class UpgradeManager : MonoBehaviour
 
     void EnsureEventSystem()
     {
-        if (FindObjectOfType<EventSystem>() == null)
+        //if (FindObjectOfType<EventSystem>() == null)
+        if (FindFirstObjectByType<EventSystem>() == null)
         {
             GameObject es = new GameObject("EventSystem");
             es.AddComponent<EventSystem>();
