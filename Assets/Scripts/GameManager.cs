@@ -76,7 +76,15 @@ public class GameManager : MonoBehaviour
 
     Vector3 GetEdgeSpawnPosition()
     {
-        Vector3 center = player.transform.position;
+        Vector3 center;
+        if(player != null)
+        {
+            center = player.transform.position;
+        }
+        else
+        {
+            center = this.transform.position;
+        }
         float margin = 1.5f;
         int edge = Random.Range(0, 4);
         float x, y;

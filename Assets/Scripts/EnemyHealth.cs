@@ -8,7 +8,7 @@ public class EnemyHealth : Health
     public int minOrbDrop = 1;
     public int maxOrbDrop = 5;
 
-    protected override void IsDead()
+    public override void IsDead()
     {
         GameManager.Instance?.EnemyDied();
         if (xpOrbPrefab != null)

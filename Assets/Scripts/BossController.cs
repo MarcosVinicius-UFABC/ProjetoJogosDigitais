@@ -3,7 +3,11 @@ using UnityEngine;
 public class BossController : EnemyController
 {
     private GameObject tg;
-    public float approachingDistance = 7f;
+    public float speedMultiplier = 5f;
+    public float approachingDistance = 8f;
+    private bool readyToRush = false;
+    public float preparingCooldown = .5f;
+    private float preparingTimer = 0f;
     private bool rushMode = false;
     private bool canRush = true;
     public float rushDuration = 1.5f;
@@ -15,18 +19,31 @@ public class BossController : EnemyController
     protected override void FixedUpdate()
     {
         if (tg == null)
-            tg = GameObject.FindGameObjectWithTag("Player");
-
-        if (tg == null) return;
-
-        if (!rushMode && Vector3.Distance(tg.transform.position, transform.position) <= approachingDistance)
         {
-            rushMode = true;
-            speed *= 4;
+            tg = GameObject.FindGameObjectWithTag("Player");
         }
-
+        else
+        {
+            if (Vector3.Distance(tg.transform.position, this.transform.position) <= approachingDistance && !rushMode)
+            {
+                rushMode = true;
+                speed *= speedMultiplier;
+                Debug.Log("Once");
+            }
+            else
+            {
+                Debug.Log("Begin");
+                Movement(tg);
+            }
+        }
+    }
+    void Movement(GameObject target)
+    {
         if (rushMode)
-            Rush(tg);
+        {
+            //Prepara -> Investida -> Descanso -> Recomeça
+            Rush(target);
+        }
         else
             Move(tg);
     }
@@ -36,14 +53,23 @@ public class BossController : EnemyController
         if (canRush && cooldownTimer <= 0)
         {
             tempTarget = new GameObject("RushTarget");
+            tempTarget.transform.SetParent(gameObject.transform);
             tempTarget.transform.position = target.transform.position;
             rushTimer = rushDuration;
             canRush = false;
         }
 
         if (cooldownTimer <= 0)
-        {
-            if (rushTimer > 0)
+        {    
+            if (!readyToRush)
+            {
+                preparingTimer += Time.fixedDeltaTime;
+                if (preparingTimer >= preparingCooldown)
+                {
+                    readyToRush = true;
+                }
+            }
+            else if (rushTimer > 0)
             {
                 rushTimer -= Time.fixedDeltaTime;
                 Move(tempTarget);
@@ -59,8 +85,9 @@ public class BossController : EnemyController
         else
         {
             cooldownTimer -= Time.fixedDeltaTime;
-            if (cooldownTimer <= 0)
-                canRush = true;
+            readyToRush = false;
+            canRush = true;
+            Debug.Log("Ready");
         }
     }
 }
