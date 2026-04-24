@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 1358804487}
   - component: {fileID: 1358804488}
   - component: {fileID: 1358804489}
+  - component: {fileID: 1358804490}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -704,6 +705,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pausePanel: {fileID: 1575727173}
+--- !u!114 &1358804490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358804486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b200b7536f1b3d44b877b035847d7de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
 --- !u!1001 &1377808656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,22 +906,6 @@ PrefabInstance:
     - target: {fileID: 1267803481848759392, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: rushCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: rushDuration
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: approachingDistance
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5726748943591329764, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
       propertyPath: m_LocalPosition.x
