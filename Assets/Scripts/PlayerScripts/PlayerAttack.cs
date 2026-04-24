@@ -11,16 +11,25 @@ public class PlayerAttack : MonoBehaviour
         public float attackTimer = 0f;
         public int attackAmount = 1;
     }
-    
+
+    [System.Serializable] public class OrbitalData
+    {
+        public GameObject orbitalPrefab;
+        public int orbCount = 3;
+        public float orbitRadius = 5f;
+        public float orbitSpeed = 180f;
+        public float damage = 15f;
+        public float damageInterval = 0.5f;
+    }
+
     public List<AttackData> playerAttacks = new List<AttackData>();
+    public List<OrbitalData> orbitalAttacks = new List<OrbitalData>();
 
     public GameObject projectilePrefab;
     public GameObject meleePrefab;
     public float fireRate = 0.3f;
     public float meleeOffset = 1f;
     [HideInInspector] public float damageMultiplier = 1f;
-
-    //private float cooldown = 0f;
 
     void Update()
     {
@@ -114,6 +123,31 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             Debug.LogWarning("Attack not found!");
+        }
+    }
+
+    public void ActivateOrbitals()
+    {
+        foreach (var data in orbitalAttacks)
+            SpawnOrbitals(data);
+    }
+
+    void SpawnOrbitals(OrbitalData data)
+    {
+        if (data.orbitalPrefab == null)
+        {
+            Debug.LogWarning("OrbitalData: orbitalPrefab not assigned.", this);
+            return;
+        }
+
+        float angleStep = 360f / data.orbCount;
+        for (int i = 0; i < data.orbCount; i++)
+        {
+            GameObject orb = Instantiate(data.orbitalPrefab);
+            OrbitalProjectile op = orb.GetComponent<OrbitalProjectile>();
+            op.damage = data.damage;
+            op.damageInterval = data.damageInterval;
+            op.Init(transform, i * angleStep, data.orbitRadius, data.orbitSpeed);
         }
     }
 }
