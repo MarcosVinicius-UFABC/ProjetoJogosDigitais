@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerSpriteAnimator : MonoBehaviour
+public class SpriteAnimator : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
