@@ -80,7 +80,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_idle
+  m_Name: mob_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -94,7 +94,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f4f69650f71c18a459ce2cde3ce6633d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8d305c1f68b0387468cf888ef727db6a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -147,7 +147,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_walk
+  m_Name: mob_walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -161,7 +161,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f94d75c8c2fffa442a7a120154ece551, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7bd3f9fad0d7ceb43b3ff0c581da8de8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
