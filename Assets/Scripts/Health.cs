@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         maxHealth *= v;
         if (currentHealth > maxHealth)
         {
-            MultiplyCurrent(v);
+            currentHealth = maxHealth;
         }
     }
     public void MultiplyCurrent(float v)
@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void IsDead()
+    public virtual void IsDead()
     {
         Destroy(gameObject);
         print("Destroyed object");

@@ -8,6 +8,8 @@ public class PlayerXP : MonoBehaviour
     public int Level { get; private set; } = 1;
     public float CurrentXP { get; private set; } = 0f;
 
+    public event System.Action OnLevelUp;
+
     public void AddXP(float amount)
     {
         CurrentXP += amount;
@@ -21,5 +23,6 @@ public class PlayerXP : MonoBehaviour
         xpToNextLevel *= xpScaling;
         Level++;
         Debug.Log($"Level up! Now level {Level}");
+        OnLevelUp?.Invoke();
     }
 }

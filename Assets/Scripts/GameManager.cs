@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private float width;
     private int currentWave = 0;
     private int enemiesAlive = 0;
+    private bool nextWavePending = false;
 
     void Awake()
     {
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnWave(int count)
     {
+        nextWavePending = false;
         enemiesAlive = count;
         for (int i = 0; i < count; i++)
         {
@@ -65,13 +67,24 @@ public class GameManager : MonoBehaviour
     {
         enemiesAlive--;
         KillCount++;
-        if (enemiesAlive <= 0)
+        if (enemiesAlive <= 0 && !nextWavePending)
+        {
+            nextWavePending = true;
             StartCoroutine(NextWave());
+        }
     }
 
     Vector3 GetEdgeSpawnPosition()
     {
-        Vector3 center = player.transform.position;
+        Vector3 center;
+        if(player != null)
+        {
+            center = player.transform.position;
+        }
+        else
+        {
+            center = this.transform.position;
+        }
         float margin = 1.5f;
         int edge = Random.Range(0, 4);
         float x, y;

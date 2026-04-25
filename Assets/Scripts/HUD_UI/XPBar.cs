@@ -11,6 +11,11 @@ public class XPBar : MonoBehaviour
 
     void Start()
     {
+        if (playerXP == null)
+        {
+            playerXP = FindObjectOfType<PlayerXP>();
+        }
+
         GameObject canvasObj = new GameObject("XPCanvas");
         Canvas canvas = canvasObj.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -76,7 +81,12 @@ public class XPBar : MonoBehaviour
 
     void Update()
     {
-        if (playerXP == null) return;
+        if (playerXP == null)
+        {
+            GameObject p = GameObject.FindWithTag("Player");
+            if (p != null) playerXP = p.GetComponent<PlayerXP>();
+            if (playerXP == null) return;
+        }
         fill.fillAmount = playerXP.CurrentXP / playerXP.xpToNextLevel;
         levelText.text = $"LVL {playerXP.Level}";
         if (GameManager.Instance != null)
