@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
-    /*
-    public GameObject victoryScreen;
     public GameObject boss;
-    private bool bossExisted = false;
+    private bool bossExisted = true;
 
     void Update()
     {
-        if(!bossExisted && boss == null)
+        if(boss == null && bossExisted)
         {
-            Debug.LogWarning("Boss not found!");
+            bossExisted = false;
+            gameObject.GetComponent<VictoryScreen>().Pause();
         }
-        else if (boss == null)
+        else
         {
-            victoryScreen.
+            return;
         }
-    }*/
+    }
 }

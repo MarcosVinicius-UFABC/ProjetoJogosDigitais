@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &172919672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2336158606088149284, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+  m_PrefabInstance: {fileID: 1899408897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +567,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e66e295ba1137d42a756f0883e39e58, type: 3}
+--- !u!1 &948367955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1267803481848759392, guid: 5ff35186b1b64c24283a45693fe4929f, type: 3}
+  m_PrefabInstance: {fileID: 2083413955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1312772651
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006cb6bb2b97a9d4eb53b3b7dae6020a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VictoryScreen
-  victoryScreen: {fileID: 0}
+  victoryScreen: {fileID: 172919672}
 --- !u!114 &1358804492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8989c29968c01b643b6c2878a2ad38da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossManager
+  boss: {fileID: 948367955}
 --- !u!1001 &1377808656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,9 +954,57 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4131835621299082904, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358804491}
+    - target: {fileID: 4131835621299082904, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131835621299082904, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VictoryScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131835621299082904, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6697794015058326565, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
       propertyPath: m_text
       value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508638032216572457, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358804491}
+    - target: {fileID: 7508638032216572457, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508638032216572457, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VictoryScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508638032216572457, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715391792358489096, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358804491}
+    - target: {fileID: 7715391792358489096, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715391792358489096, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VictoryScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715391792358489096, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8089526173492495297, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
       propertyPath: m_Pivot.x
@@ -1026,6 +1085,22 @@ PrefabInstance:
     - target: {fileID: 8089526173492495297, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962127700280599512, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358804491}
+    - target: {fileID: 8962127700280599512, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962127700280599512, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VictoryScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962127700280599512, guid: 55fa438e1c184e448876cd96a4e541e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
