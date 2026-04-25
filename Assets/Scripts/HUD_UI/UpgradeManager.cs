@@ -19,6 +19,8 @@ public class UpgradeManager : MonoBehaviour
         public string title;
         public string description;
         public Color color;
+        public int minLevel = 1;
+        public bool isAttackUpgrade = false;
         public Action apply;
     }
 
@@ -80,6 +82,15 @@ public class UpgradeManager : MonoBehaviour
                     damageMultiplier += 0.25f;
                     playerAttack.damageMultiplier = damageMultiplier;
                 }
+            },
+            new UpgradeOption
+            {
+                title = "Orbital Strike",
+                description = "Summon orbs that\ncircle and damage\nnearby enemies",
+                color = new Color(0.15f, 0.5f, 0.35f),
+                minLevel = 3,
+                isAttackUpgrade = true,
+                apply = () => playerAttack.ActivateOrbitals()
             }
         };
     }
@@ -122,10 +133,23 @@ public class UpgradeManager : MonoBehaviour
             new Vector2(0f, 0.6f), new Vector2(1f, 0.78f));
 
         // Shuffle and lay out cards
-        List<UpgradeOption> options = new List<UpgradeOption>(allUpgrades);
-        Shuffle(options);
+        List<UpgradeOption> statPool   = allUpgrades.FindAll(u => !u.isAttackUpgrade);
+        List<UpgradeOption> attackPool = allUpgrades.FindAll(u => u.isAttackUpgrade && u.minLevel <= playerXP.Level);
+        Shuffle(statPool);
+        Shuffle(attackPool);
 
-        const float cardW = 240f, cardH = 300f, spacing = 40f;
+        List<UpgradeOption> options = new List<UpgradeOption>();
+        if (playerXP.Level % 3 == 0 && attackPool.Count > 0)
+        {
+            options.Add(attackPool[0]);
+            options.AddRange(statPool.GetRange(0, Mathf.Min(2, statPool.Count)));
+        }
+        else
+        {
+            options.AddRange(statPool.GetRange(0, Mathf.Min(3, statPool.Count)));
+        }
+
+        const float cardW = 310f, cardH = 390f, spacing = 50f;
         float totalW = options.Count * cardW + (options.Count - 1) * spacing;
         float startX = -totalW / 2f + cardW / 2f;
 
@@ -158,17 +182,19 @@ public class UpgradeManager : MonoBehaviour
         stripRt.anchorMax = Vector2.one;
         stripRt.offsetMin = stripRt.offsetMax = Vector2.zero;
 
-        MakeCardText(card.transform, option.title, 21, FontStyle.Bold, Color.white,
+        MakeCardText(card.transform, option.title, 26, FontStyle.Bold, Color.white,
             new Vector2(0f, 0.36f), new Vector2(1f, 0.62f));
-        MakeCardText(card.transform, option.description, 15, FontStyle.Normal, new Color(1f, 1f, 1f, 0.9f),
+        MakeCardText(card.transform, option.description, 18, FontStyle.Normal, new Color(1f, 1f, 1f, 0.9f),
             new Vector2(0f, 0.12f), new Vector2(1f, 0.36f));
-        MakeCardText(card.transform, "[ Click to choose ]", 12, FontStyle.Italic, new Color(1f, 1f, 1f, 0.55f),
+        MakeCardText(card.transform, "[ Click to choose ]", 14, FontStyle.Italic, new Color(1f, 1f, 1f, 0.55f),
             new Vector2(0f, 0f), new Vector2(1f, 0.14f));
     }
 
     void SelectUpgrade(UpgradeOption option)
     {
         option.apply();
+        if (option.isAttackUpgrade)
+            allUpgrades.Remove(option);
         Destroy(overlayCanvas);
         Time.timeScale = 1f;
     }
