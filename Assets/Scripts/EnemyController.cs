@@ -1,11 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public float speed = 4f;
-    private Vector2 moveInput;
-    private GameObject target;
-    private Rigidbody2D rb;
+    public float damage = 30f;
+    /*public float xpDrop = 10f;
+    public GameObject xpOrbPrefab;*/
+    protected Vector2 moveInput;
+    protected GameObject target;
+    protected Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,8 +17,17 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
+    {
+        Move(target);
+    }
+
+    public void SetTarget(GameObject tg)
+    {
+        target = tg;
+    }
+
+    public void Move(GameObject target)
     {
         if(target == null)
         {
@@ -25,8 +38,21 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = moveInput * speed;
     }
 
-    public void SetTarget(GameObject tg)
+    /*void OnDestroy()
     {
-        target = tg;
+        GameManager.Instance?.EnemyDied();
+        if (xpOrbPrefab != null)
+        {
+            GameObject orb = Instantiate(xpOrbPrefab, transform.position, Quaternion.identity);
+            orb.GetComponent<XPOrb>().xpValue = xpDrop;
+        }
+    }*/
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage * Time.deltaTime);
+        }
     }
 }
