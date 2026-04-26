@@ -13,7 +13,7 @@ public class XPBar : MonoBehaviour
     {
         if (playerXP == null)
         {
-            playerXP = FindObjectOfType<PlayerXP>();
+            playerXP = FindFirstObjectByType<PlayerXP>();
         }
 
         GameObject canvasObj = new GameObject("XPCanvas");

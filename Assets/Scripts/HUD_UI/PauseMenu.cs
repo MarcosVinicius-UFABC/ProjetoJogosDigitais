@@ -6,7 +6,18 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;
+    private AudioSource backgroundMusic;
     private bool isPaused = false;
+
+    void Start()
+    {
+        GameObject camera = GameObject.Find("Main Camera");
+        
+        if (camera != null)
+        {
+            backgroundMusic = camera.GetComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -23,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
+        backgroundMusic.UnPause();
         isPaused = false;
     }
 
@@ -30,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     {
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
+        backgroundMusic.Pause();
         isPaused = true;
     }
 
