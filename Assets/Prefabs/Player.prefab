@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 6021281772846066099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -215,6 +215,7 @@ MonoBehaviour:
     attackCooldown: 0.3
     attackTimer: 0
     attackAmount: 1
+  orbitalAttacks: []
   projectilePrefab: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
   meleePrefab: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
   fireRate: 0.3
