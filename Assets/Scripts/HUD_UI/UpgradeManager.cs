@@ -13,6 +13,8 @@ public class UpgradeManager : MonoBehaviour
 
     private GameObject overlayCanvas;
     private float damageMultiplier = 1f;
+    private AudioSource levelUpSoundEffect;
+    private AudioSource backgroundMusic;
 
     private class UpgradeOption
     {
@@ -42,6 +44,14 @@ public class UpgradeManager : MonoBehaviour
 
         BuildUpgradePool();
         playerXP.OnLevelUp += ShowUpgradeUI;
+
+        GameObject XPBar = GameObject.Find("XPBar");
+        if (XPBar != null) 
+          levelUpSoundEffect = XPBar.GetComponent<AudioSource>();
+        
+        GameObject camera = GameObject.Find("Main Camera");
+        if (camera != null) 
+          backgroundMusic = camera.GetComponent<AudioSource>();
     }
 
     void OnDestroy()
@@ -99,6 +109,8 @@ public class UpgradeManager : MonoBehaviour
     {
         EnsureEventSystem();
         Time.timeScale = 0f;
+        backgroundMusic.Pause();
+        levelUpSoundEffect.Play();
         BuildUI();
     }
 
@@ -197,6 +209,7 @@ public class UpgradeManager : MonoBehaviour
             allUpgrades.Remove(option);
         Destroy(overlayCanvas);
         Time.timeScale = 1f;
+        backgroundMusic.UnPause();
     }
 
     // --- UI helpers ---
