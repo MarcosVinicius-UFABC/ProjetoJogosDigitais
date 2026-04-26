@@ -211,12 +211,10 @@ MonoBehaviour:
     attackCooldown: 0.5
     attackTimer: 0
     attackAmount: 1
-  - attackPrefab: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
-    attackCooldown: 0.3
-    attackTimer: 0
-    attackAmount: 1
+  orbitalAttacks: []
   projectilePrefab: {fileID: 7519278973829809442, guid: 97fe9c0407919f74ab79ef542d208643, type: 3}
   meleePrefab: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
+  targetedCirclePrefab: {fileID: 1049709694077394251, guid: 1f72a8c36df9ea7408507025b0efebbc, type: 3}
   fireRate: 0.3
   meleeOffset: 1
   damageMultiplier: 1
