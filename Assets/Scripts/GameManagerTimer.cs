@@ -19,7 +19,7 @@ public class GameManagerTimer : MonoBehaviour
     private int secondsNumber;
     private string seconds;
 
-    private bool gameOver = false;
+    // private bool gameOver = false;
 
     void Start()
     {
