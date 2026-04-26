@@ -32,6 +32,19 @@ public class PlayerAttack : MonoBehaviour
     public float meleeOffset = 1f;
     [HideInInspector] public float damageMultiplier = 1f;
 
+    public bool ProjectileActive { get; private set; }
+    public bool OrbitalsActive { get; private set; }
+    public bool TargetedCircleActive { get; private set; }
+
+    void Start()
+    {
+        if (!PlayerPersistentData.hasData) return;
+        damageMultiplier = PlayerPersistentData.damageMultiplier;
+        if (PlayerPersistentData.projectileUnlocked) ActivateProjectile();
+        if (PlayerPersistentData.orbitalsUnlocked) ActivateOrbitals();
+        if (PlayerPersistentData.targetedCircleUnlocked) ActivateTargetedCircle();
+    }
+
     void Update()
     {
         /*
@@ -133,6 +146,7 @@ public class PlayerAttack : MonoBehaviour
             if (atk.attackPrefab == projectilePrefab) return;
 
         playerAttacks.Add(new AttackData { attackPrefab = projectilePrefab, attackCooldown = 0.5f });
+        ProjectileActive = true;
     }
 
     public void ActivateTargetedCircle()
@@ -147,12 +161,14 @@ public class PlayerAttack : MonoBehaviour
 
         GameObject circle = Instantiate(targetedCirclePrefab, Vector3.zero, Quaternion.identity);
         circle.GetComponent<TargetedCircleAttack>().damage *= damageMultiplier;
+        TargetedCircleActive = true;
     }
 
     public void ActivateOrbitals()
     {
         foreach (var data in orbitalAttacks)
             SpawnOrbitals(data);
+        OrbitalsActive = true;
     }
 
     void SpawnOrbitals(OrbitalData data)

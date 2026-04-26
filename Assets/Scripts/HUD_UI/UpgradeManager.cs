@@ -42,6 +42,9 @@ public class UpgradeManager : MonoBehaviour
             return;
         }
 
+        if (PlayerPersistentData.hasData)
+            damageMultiplier = PlayerPersistentData.damageMultiplier;
+
         BuildUpgradePool();
         playerXP.OnLevelUp += ShowUpgradeUI;
 
@@ -121,6 +124,16 @@ public class UpgradeManager : MonoBehaviour
                 apply = () => playerAttack.ActivateTargetedCircle()
             }
         };
+
+        if (PlayerPersistentData.hasData)
+        {
+            if (PlayerPersistentData.projectileUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Magic Bullet");
+            if (PlayerPersistentData.orbitalsUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Orbital Strike");
+            if (PlayerPersistentData.targetedCircleUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Doom Circle");
+        }
     }
 
     void ShowUpgradeUI()
