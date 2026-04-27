@@ -1032,7 +1032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655365558798855130, guid: 8edfde2cdb793524aa4a7f5e2c04fa06, type: 3}
       propertyPath: textList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8655365558798855130, guid: 8edfde2cdb793524aa4a7f5e2c04fa06, type: 3}
       propertyPath: 'textList.Array.data[0]'
@@ -1049,6 +1049,10 @@ PrefabInstance:
     - target: {fileID: 8655365558798855130, guid: 8edfde2cdb793524aa4a7f5e2c04fa06, type: 3}
       propertyPath: 'textList.Array.data[3]'
       value: O portal leva ao combate!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655365558798855130, guid: 8edfde2cdb793524aa4a7f5e2c04fa06, type: 3}
+      propertyPath: 'textList.Array.data[4]'
+      value: "Dica: N\xE3o tem nada aqui fora o portal!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
