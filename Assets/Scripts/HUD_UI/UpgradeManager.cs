@@ -42,6 +42,9 @@ public class UpgradeManager : MonoBehaviour
             return;
         }
 
+        if (PlayerPersistentData.hasData)
+            damageMultiplier = PlayerPersistentData.damageMultiplier;
+
         BuildUpgradePool();
         playerXP.OnLevelUp += ShowUpgradeUI;
 
@@ -95,14 +98,42 @@ public class UpgradeManager : MonoBehaviour
             },
             new UpgradeOption
             {
+                title = "Magic Bullet",
+                description = "Fire projectiles\ntoward enemies\nautomatically",
+                color = new Color(0.1f, 0.4f, 0.55f),
+                minLevel = 3,
+                isAttackUpgrade = true,
+                apply = () => playerAttack.ActivateProjectile()
+            },
+            new UpgradeOption
+            {
                 title = "Orbital Strike",
                 description = "Summon orbs that\ncircle and damage\nnearby enemies",
                 color = new Color(0.15f, 0.5f, 0.35f),
                 minLevel = 3,
                 isAttackUpgrade = true,
                 apply = () => playerAttack.ActivateOrbitals()
+            },
+            new UpgradeOption
+            {
+                title = "Doom Circle",
+                description = "A cursed circle\nstrikes random\nenemies repeatedly",
+                color = new Color(0.45f, 0.1f, 0.55f),
+                minLevel = 3,
+                isAttackUpgrade = true,
+                apply = () => playerAttack.ActivateTargetedCircle()
             }
         };
+
+        if (PlayerPersistentData.hasData)
+        {
+            if (PlayerPersistentData.projectileUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Magic Bullet");
+            if (PlayerPersistentData.orbitalsUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Orbital Strike");
+            if (PlayerPersistentData.targetedCircleUnlocked)
+                allUpgrades.RemoveAll(u => u.title == "Doom Circle");
+        }
     }
 
     void ShowUpgradeUI()

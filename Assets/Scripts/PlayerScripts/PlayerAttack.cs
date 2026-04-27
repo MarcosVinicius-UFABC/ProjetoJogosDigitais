@@ -27,9 +27,23 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject projectilePrefab;
     public GameObject meleePrefab;
+    public GameObject targetedCirclePrefab;
     public float fireRate = 0.3f;
     public float meleeOffset = 1f;
     [HideInInspector] public float damageMultiplier = 1f;
+
+    public bool ProjectileActive { get; private set; }
+    public bool OrbitalsActive { get; private set; }
+    public bool TargetedCircleActive { get; private set; }
+
+    void Start()
+    {
+        if (!PlayerPersistentData.hasData) return;
+        damageMultiplier = PlayerPersistentData.damageMultiplier;
+        if (PlayerPersistentData.projectileUnlocked) ActivateProjectile();
+        if (PlayerPersistentData.orbitalsUnlocked) ActivateOrbitals();
+        if (PlayerPersistentData.targetedCircleUnlocked) ActivateTargetedCircle();
+    }
 
     void Update()
     {
@@ -113,23 +127,48 @@ public class PlayerAttack : MonoBehaviour
     void Attack(GameObject attack)
     {
         if (attack == meleePrefab)
-        {
             FireMelee();
-        }
         else if (attack == projectilePrefab)
-        {
             FireProjectile();
-        }
         else
-        {
             Debug.LogWarning("Attack not found!");
+    }
+
+    public void ActivateProjectile()
+    {
+        if (projectilePrefab == null)
+        {
+            Debug.LogWarning("PlayerAttack: projectilePrefab not assigned in Inspector.", this);
+            return;
         }
+
+        foreach (var atk in playerAttacks)
+            if (atk.attackPrefab == projectilePrefab) return;
+
+        playerAttacks.Add(new AttackData { attackPrefab = projectilePrefab, attackCooldown = 0.5f });
+        ProjectileActive = true;
+    }
+
+    public void ActivateTargetedCircle()
+    {
+        if (targetedCirclePrefab == null)
+        {
+            Debug.LogWarning("PlayerAttack: targetedCirclePrefab not assigned in Inspector.", this);
+            return;
+        }
+
+        if (FindFirstObjectByType<TargetedCircleAttack>() != null) return;
+
+        GameObject circle = Instantiate(targetedCirclePrefab, Vector3.zero, Quaternion.identity);
+        circle.GetComponent<TargetedCircleAttack>().damage *= damageMultiplier;
+        TargetedCircleActive = true;
     }
 
     public void ActivateOrbitals()
     {
         foreach (var data in orbitalAttacks)
             SpawnOrbitals(data);
+        OrbitalsActive = true;
     }
 
     void SpawnOrbitals(OrbitalData data)

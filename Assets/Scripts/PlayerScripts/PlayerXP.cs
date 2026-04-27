@@ -10,6 +10,14 @@ public class PlayerXP : MonoBehaviour
 
     public event System.Action OnLevelUp;
 
+    void Start()
+    {
+        if (!PlayerPersistentData.hasData) return;
+        Level = PlayerPersistentData.level;
+        CurrentXP = PlayerPersistentData.currentXP;
+        xpToNextLevel = PlayerPersistentData.xpToNextLevel;
+    }
+
     public void AddXP(float amount)
     {
         CurrentXP += amount;
