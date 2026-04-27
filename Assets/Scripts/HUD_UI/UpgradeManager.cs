@@ -140,8 +140,14 @@ public class UpgradeManager : MonoBehaviour
     {
         EnsureEventSystem();
         Time.timeScale = 0f;
-        backgroundMusic.Pause();
-        levelUpSoundEffect.Play();
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Pause();
+        }
+        if (levelUpSoundEffect != null)
+        {
+            levelUpSoundEffect.Play();
+        }
         BuildUI();
     }
 
@@ -240,7 +246,10 @@ public class UpgradeManager : MonoBehaviour
             allUpgrades.Remove(option);
         Destroy(overlayCanvas);
         Time.timeScale = 1f;
-        backgroundMusic.UnPause();
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.UnPause();
+        }
     }
 
     // --- UI helpers ---

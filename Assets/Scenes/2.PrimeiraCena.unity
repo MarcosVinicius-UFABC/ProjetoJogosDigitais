@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerTimer
   textMeshPro: {fileID: 7572869591850606566, guid: 4752f2cb84a0126488953bf5182e3c3b, type: 3}
-  sceneTime: 20
+  sceneTime: 10
   clockOffset: {x: 0, y: 5, z: 0}
   victoryScreen: {fileID: 1500942656}
 --- !u!114 &1358804491
@@ -6424,6 +6424,22 @@ PrefabInstance:
     - target: {fileID: 1241809811483372669, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642773345101560126, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642773345101560126, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642773345101560126, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackPrefab
+      value: 
+      objectReference: {fileID: 878117581408728946, guid: a365bd75e61b1e9449e869818d4b99ef, type: 3}
+    - target: {fileID: 4642773345101560126, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
+      propertyPath: playerAttacks.Array.data[1].attackCooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5972647999613841259, guid: 7d1d1f1986afc5a418f2c45e915021f2, type: 3}
       propertyPath: m_Name

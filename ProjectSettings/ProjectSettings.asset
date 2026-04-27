@@ -660,7 +660,9 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Purchasing: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -682,11 +684,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 75c4ad7d-94fb-4b07-a6dc-442e41e6b603
+  cloudProjectId: e63176e8-02e9-43bb-9298-3a5573d0dfe9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ProjetoFinalMapaDungeon
-  organizationId: erikfariaslima
+  projectName: Rogue
+  organizationId: unity_c75d31b5fda184cbf416
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
