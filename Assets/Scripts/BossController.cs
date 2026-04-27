@@ -45,7 +45,7 @@ public class BossController : EnemyController
             Rush(target);
         }
         else
-            Move(tg);
+            return;//Move(tg);
     }
 
     void Rush(GameObject target)
