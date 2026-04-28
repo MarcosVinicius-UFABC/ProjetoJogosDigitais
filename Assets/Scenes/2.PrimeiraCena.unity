@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerTimer
   textMeshPro: {fileID: 7572869591850606566, guid: 4752f2cb84a0126488953bf5182e3c3b, type: 3}
-  sceneTime: 10
+  sceneTime: 180
   clockOffset: {x: 0, y: 5, z: 0}
   victoryScreen: {fileID: 1500942656}
 --- !u!114 &1358804491
