@@ -21,9 +21,30 @@ public class VictoryScreen : MonoBehaviour
 
     public void NextStage()
     {
+        SavePlayerData();
         UnityEngine.SceneManagement.Scene currentScene = SceneManager.GetActiveScene();
         UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene.buildIndex+1);
         Resume();
+    }
+
+    void SavePlayerData()
+    {
+        PlayerXP xp = FindFirstObjectByType<PlayerXP>();
+        PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
+        PlayerAttack attack = FindFirstObjectByType<PlayerAttack>();
+
+        if (xp == null || health == null || attack == null) return;
+
+        PlayerPersistentData.hasData = true;
+        PlayerPersistentData.level = xp.Level;
+        PlayerPersistentData.currentXP = xp.CurrentXP;
+        PlayerPersistentData.xpToNextLevel = xp.xpToNextLevel;
+        PlayerPersistentData.maxHealth = health.maxHealth;
+        PlayerPersistentData.currentHealth = health.CurrentHealth;
+        PlayerPersistentData.damageMultiplier = attack.damageMultiplier;
+        PlayerPersistentData.projectileUnlocked = attack.ProjectileActive;
+        PlayerPersistentData.orbitalsUnlocked = attack.OrbitalsActive;
+        PlayerPersistentData.targetedCircleUnlocked = attack.TargetedCircleActive;
     }
 
     public void Reset()
