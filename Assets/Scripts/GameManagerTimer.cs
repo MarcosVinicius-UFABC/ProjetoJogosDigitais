@@ -19,7 +19,7 @@ public class GameManagerTimer : MonoBehaviour
     private int secondsNumber;
     private string seconds;
 
-    // private bool gameOver = false;
+    private bool gameOver = false;
 
     void Start()
     {
@@ -47,7 +47,6 @@ public class GameManagerTimer : MonoBehaviour
             clock.text = minutes + ":" + seconds;
         }
 
-        /*
         if(timer <= 0 && !gameOver)
         {
             GameObject [] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -61,6 +60,5 @@ public class GameManagerTimer : MonoBehaviour
             gameObject.GetComponent<VictoryScreen>().Pause();
             gameOver = true;
         }
-        */
     }
 }
